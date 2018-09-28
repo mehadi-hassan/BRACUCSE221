@@ -82,11 +82,35 @@ public class MyArray {
         return c;
     }
     
-    public static int[] quickSort(int[] a){
-      return  null;
+    public static int[] quickSort(int[] a,int start, int end){
+        
+        if(start<end){
+            int pIndex = partition(a , start , end);
+            quickSort(a, start , pIndex-1);
+            quickSort(a, pIndex+1 , end);
+        }
+        return a;
     }
     
-    
+    public static int partition(int[] a , int start , int end){
+        int pivot = a[end];
+        int pIndex = start;
+        
+        for(int i = start ; i< end ; i++){
+            if(a[i]<=pivot){
+                int swap = a[i];
+                a[i] = a[pIndex];
+                a[pIndex] = swap;
+                pIndex++;
+            }
+        }
+        
+        int swap = a[pIndex];
+        a[pIndex] = a[end];
+        a[end] = swap;
+        
+        return pIndex;
+    }
     
     
     

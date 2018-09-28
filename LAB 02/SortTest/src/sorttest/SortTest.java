@@ -61,16 +61,16 @@ public class SortTest {
         
         
          //Task 4
-//        System.out.println("Task 4: Quick Sort");
-//        System.arraycopy(array, 0, temp , 0, (array.length));
-//        System.out.println("Unsorted Array");
-//        MyArray.toMyString(temp);
-//        timeStart = (int) ((System.currentTimeMillis()));
-//        temp = MyArray.quickSort(temp);
-//        timeEnd  = (int) ((System.currentTimeMillis())) - timeStart;
-//        System.out.println("Sorted Array:");
-//        MyArray.toMyString(temp);
-//        System.out.println("Time required: " + timeEnd + " ms\n");
+        System.out.println("Task 4: Quick Sort");
+        System.arraycopy(array, 0, temp , 0, (array.length));
+        System.out.println("Unsorted Array");
+        MyArray.toMyString(temp);
+        timeStart = (int) ((System.currentTimeMillis()));
+        temp = MyArray.quickSort(temp , 0 , temp.length-1);
+        timeEnd  = (int) ((System.currentTimeMillis())) - timeStart;
+        System.out.println("Sorted Array:");
+        MyArray.toMyString(temp);
+        System.out.println("Time required: " + timeEnd + " ms\n");
         
         
         
