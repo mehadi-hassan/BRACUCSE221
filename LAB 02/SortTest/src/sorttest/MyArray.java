@@ -82,17 +82,6 @@ public class MyArray {
         return c;
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     public static int[] quickSort(int[] a){
       return  null;
     }

@@ -23,38 +23,54 @@ public class SortTest {
         
         //Task 1
         System.out.println("Task 1: Built in Sort");
-        int[] temp = array;
+        int[] temp = new int[array.length];
+        System.arraycopy(array, 0, temp , 0, (array.length));
+        System.out.println("Unsorted Array");
+        MyArray.toMyString(temp);
         int timeStart = (int) ((System.currentTimeMillis()));
         Arrays.sort(temp);
-        MyArray.toMyString(temp);
         int timeEnd  = (int) ((System.currentTimeMillis())) - timeStart;
+        System.out.println("Sorted Array:");
+        MyArray.toMyString(temp);
         System.out.println("Time required: " + timeEnd + " ms\n");
         
         //Task 2
         System.out.println("Task 2: Insertion Sort");
+        System.arraycopy(array, 0, temp , 0, (array.length));
+        System.out.println("Unsorted Array");
+        MyArray.toMyString(temp);
         timeStart = (int) ((System.currentTimeMillis()));
-        temp = MyArray.insertionSort(array);
+        temp = MyArray.insertionSort(temp);
         timeEnd  = (int) ((System.currentTimeMillis())) - timeStart;
+        System.out.println("Sorted Array:");
         MyArray.toMyString(temp);
         System.out.println("Time required: " + timeEnd + " ms\n");
         
         
         //Task 3
         System.out.println("Task 3: Merge Sort");
+        System.arraycopy(array, 0, temp , 0, (array.length));
+        System.out.println("Unsorted Array");
+        MyArray.toMyString(temp);
         timeStart = (int) ((System.currentTimeMillis()));
-        temp = MyArray.mergeSort(array);
+        temp = MyArray.mergeSort(temp);
         timeEnd  = (int) ((System.currentTimeMillis())) - timeStart;
+        System.out.println("Sorted Array:");
         MyArray.toMyString(temp);
         System.out.println("Time required: " + timeEnd + " ms\n");
         
         
-        //Task 4
-        System.out.println("Task 4: Quick Sort");
-        timeStart = (int) ((System.currentTimeMillis()));
-        temp = MyArray.quickSort(array);
-        timeEnd  = (int) ((System.currentTimeMillis())) - timeStart;
-        MyArray.toMyString(temp);
-        System.out.println("Time required: " + timeEnd + " ms\n");
+         //Task 4
+//        System.out.println("Task 4: Quick Sort");
+//        System.arraycopy(array, 0, temp , 0, (array.length));
+//        System.out.println("Unsorted Array");
+//        MyArray.toMyString(temp);
+//        timeStart = (int) ((System.currentTimeMillis()));
+//        temp = MyArray.quickSort(temp);
+//        timeEnd  = (int) ((System.currentTimeMillis())) - timeStart;
+//        System.out.println("Sorted Array:");
+//        MyArray.toMyString(temp);
+//        System.out.println("Time required: " + timeEnd + " ms\n");
         
         
         
