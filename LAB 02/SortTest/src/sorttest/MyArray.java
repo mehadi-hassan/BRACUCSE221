@@ -9,7 +9,6 @@ package sorttest;
 import java.util.Arrays;
 
 /**
- *
  * @author 17101177
  */
 public class MyArray {
