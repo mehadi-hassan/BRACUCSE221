@@ -7,6 +7,7 @@
 package sorttest;
 
 import java.util.Arrays;
+import java.util.Random;
 
 /**
  * @author 17101177
@@ -92,6 +93,16 @@ public class MyArray {
         return a;
     }
     
+     public static int[] quickSortR(int[] a,int start, int end){
+        
+        if(start<end){
+            int pIndex = partitionR(a , start , end);
+            quickSort(a, start , pIndex-1);
+            quickSort(a, pIndex+1 , end);
+        }
+        return a;
+    }
+    
     public static int partition(int[] a , int start , int end){
         int pivot = a[end];
         int pIndex = start;
@@ -104,15 +115,45 @@ public class MyArray {
                 pIndex++;
             }
         }
-        
+
         int swap = a[pIndex];
         a[pIndex] = a[end];
         a[end] = swap;
-        
+
         return pIndex;
     }
     
+    public static int partitionR(int[] a , int start , int end){
+        Random random = new Random();
+        int i = random.nextInt((end - start) + 1) + start;
+        int temp = a[end];
+        a[end] = a[i];
+        a[i] = temp;
+        return partition(a , start ,end);
+        
+    }
     
+    
+    
+    public static int findK(int[] a, int start, int end, int k){
+        int index = partition (a , start , end);
+        
+        if(k > 0 && k <= end - start + 1){
+            if(index - 1 == k - 1){
+            return a[index];
+        }
+        
+        if(index - 1 > k -1){
+            return findK(a , 0 , index - 1 , k);
+        }
+        
+        return findK(a , index + 1 , end , k - index + start - 1);
+            
+        }
+        
+        return Integer.MAX_VALUE; 
+        
+    }
     
     
     

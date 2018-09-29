@@ -60,13 +60,30 @@ public class SortTest {
         System.out.println("Time required: " + timeEnd + " ms\n");
         
         
-         //Task 4
-        System.out.println("Task 4: Quick Sort");
+         //Task 4(a)
+        System.out.println("Task 4(a): Quick Sort");
         System.arraycopy(array, 0, temp , 0, (array.length));
         System.out.println("Unsorted Array");
         MyArray.toMyString(temp);
         timeStart = (int) ((System.currentTimeMillis()));
         temp = MyArray.quickSort(temp , 0 , temp.length-1);
+        timeEnd  = (int) ((System.currentTimeMillis())) - timeStart;
+        System.out.println("Sorted Array:");
+        MyArray.toMyString(temp);
+        System.out.println("Time required: " + timeEnd + " ms\n");
+        
+        //Task 4(b)
+//        System.out.println("Task 4(b): 5th elemend:");
+//        System.arraycopy(array, 0, temp , 0, (array.length));
+//        System.out.println(MyArray.findK(temp, 0 , temp.length , 2));
+        
+         //Task 5
+        System.out.println("Task 5: Quick Sort using randomized pivot");
+        System.arraycopy(array, 0, temp , 0, (array.length));
+        System.out.println("Unsorted Array");
+        MyArray.toMyString(temp);
+        timeStart = (int) ((System.currentTimeMillis()));
+        temp = MyArray.quickSortR(temp , 0 , temp.length-1);
         timeEnd  = (int) ((System.currentTimeMillis())) - timeStart;
         System.out.println("Sorted Array:");
         MyArray.toMyString(temp);
