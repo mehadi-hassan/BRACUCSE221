@@ -90,10 +90,17 @@ public class SortTest {
         System.out.println("Time required: " + timeEnd + " ms\n");
         
         
-        
-        
-        
-        
+        //Task 6
+        System.out.println("Task 6: Heap Sort");
+        System.arraycopy(array, 0, temp , 0, (array.length));
+        System.out.println("Unsorted Array");
+        MyArray.toMyString(temp);
+        timeStart = (int) ((System.currentTimeMillis()));
+        MyArray.heapSort(temp);
+        timeEnd  = (int) ((System.currentTimeMillis())) - timeStart;
+        System.out.println("Sorted Array:");
+        MyArray.toMyString(temp);
+        System.out.println("Time required: " + timeEnd + " ms\n");
         
     }
     
