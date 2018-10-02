@@ -169,28 +169,24 @@ public class MyArray {
     } 
     
     public static int findK(int[] a, int start, int end, int k){
-        int index = partition (a , start , end);
+        int i = partition(a , start , end);
         
-        if(k > 0 && k <= end - start + 1){
-            if(index - 1 == k - 1){
-            return a[index];
+        
+        while(i!=(k-1)){
+        if(i == (k-1)){
+            return a[i];
         }
         
-        if(index - 1 > k -1){
-            return findK(a , 0 , index - 1 , k);
+        else if(i < k-1){
+            i = partition(a , i+1 , end);
+          }
+          
+         else if(i > k-1){
+            i = partition(a , start , i-1);
+          }
         }
-        
-        return findK(a , index + 1 , end , k - index + start - 1);
-            
-        }
-        
-        return Integer.MAX_VALUE; 
-        
+        return a[i];
     }
-    
-    
-    
-    
     
     
     public static void toMyString(int[] a){
