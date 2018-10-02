@@ -72,10 +72,10 @@ public class SortTest {
         MyArray.toMyString(temp);
         System.out.println("Time required: " + timeEnd + " ms\n");
         
-        //Task 4(b)
-//        System.out.println("Task 4(b): 5th elemend:");
-//        System.arraycopy(array, 0, temp , 0, (array.length));
-//        System.out.println(MyArray.findK(temp, 0 , temp.length , 2));
+        // Task 4(b)
+        System.out.print("Task 4(b): 3rd element: ");
+        System.arraycopy(array, 0, temp , 0, (array.length));
+        System.out.println(MyArray.findK(temp, 0 , temp.length-1 , 3) + "\n");
         
          //Task 5
         System.out.println("Task 5: Quick Sort using randomized pivot");
