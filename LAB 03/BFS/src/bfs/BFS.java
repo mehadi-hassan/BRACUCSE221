@@ -92,12 +92,7 @@ public class BFS {
     
     public static void print(int[] p , int[] d){
         for(int i = 1 ; i<p.length ; i++){
-            
-            
-            
-            
-            
-//            System.out.println(i+ " "+p[i]+"->"+d[i]);
+            System.out.println(i+ " "+p[i]+"->"+d[i]);
         }
     }
     
