@@ -16,7 +16,7 @@ import java.util.Scanner;
  *
  * @author 17101177
  */
-public class BFS {
+public class Task01 {
 
     /**
      * @param args the command line arguments
@@ -42,14 +42,6 @@ public class BFS {
         }
         
         bfs(matrixUndirected , 1);
-        
-         for(int i = 0 ; i<matrixUndirected.length ; i++){
-             
-             for(int j = 0 ; j <matrixUndirected.length ; j++){
-                System.out.print(matrixUndirected[i][j]+" ");
-            }
-             System.out.println();
-        }
         
     }
     
@@ -86,13 +78,28 @@ public class BFS {
             color[u]  = "black";
             
         }
+            
+    print(parent, distance);
+    
+    }
+    
+    
+    public static String direction (int[] parent ,int i){
+        String s = "";
+        int temp = i;
+        while(parent[i]!=-1){
+            String q = ""+parent[i];
+            s = q + ", " +s;
+            i = parent[i];
+        }
+        s = s + temp;
+        return s;
         
-        print(parent, distance);
     }
     
     public static void print(int[] p , int[] d){
         for(int i = 1 ; i<p.length ; i++){
-            System.out.println(i+ " "+p[i]+"->"+d[i]);
+            System.out.println(i+ " : distance from the source - " + d[i] + ", path -> " + direction(p , i));
         }
     }
     
