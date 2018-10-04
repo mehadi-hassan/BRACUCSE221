@@ -102,6 +102,4 @@ public class Task01 {
             System.out.println(i+ " : distance from the source - " + d[i] + ", path -> " + direction(p , i));
         }
     }
-    
-    
 }
