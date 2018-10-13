@@ -45,7 +45,7 @@ public class DFS {
         for(int i = 0 ; i < graph.length ; i++){
            if(color[i].equals("white")){
                parent[i] = u;
-              System.out.println(parent[i]);
+              //System.out.println(parent[i]);
                dfs_visit(graph , i);
                
            }

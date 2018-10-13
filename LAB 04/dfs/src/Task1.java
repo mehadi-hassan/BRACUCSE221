@@ -25,15 +25,15 @@ public class Task1 {
         }
         
         int w = sc.nextInt() + 1;
-        int[][] matrixUndirected = new int[w][w];
+        int[][] matrix = new int[w][w];
         while(sc.hasNextInt()){
             int p = sc.nextInt();
             int q = sc.nextInt();
-            matrixUndirected[p][q] = 1;
+            matrix[p][q] = 1;
         }
         
         DFS dfs = new DFS();
-        dfs.dfs(matrixUndirected);
+        dfs.dfs(matrix);
         dfs.print();
     }
 }
