@@ -4,8 +4,6 @@
  * and open the template in the editor.
  */
 
-package sorttest;
-
 import java.util.Arrays;
 import java.util.Random;
 
