@@ -3,21 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package dijkstra;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  *
  * @author 17101177
  */
 public class Dijkstra {
-public static int[][] graph = new int[14][14];
+	public static int[][] graph = new int[14][14];
     public static int[] parent = new int[14];
     public static int[] distance = new int[14];
-    public static boolean[] check = new boolean[6];
+    public static boolean[] check = new boolean[14];
     public static String[] city = {"Motijheel" , "A" , "B" , "C" , "D", "E" , 
                                     "F" , "G" , "H" , "I" , "J" , "K" , "L" , "MOGHBAZAR" };
     
@@ -52,13 +51,13 @@ public static int[][] graph = new int[14][14];
             graph[p][q] = sc.nextInt();
         }
         
-    //dij(graph , "Motijheel" , "MOGHBAZAR");
-    System.out.println(graph[6][13]);
+    dij(graph , "Motijheel" , "MOGHBAZAR");
+    
     }
     
     
     public static void dij(int[][] graph , String s , String e){
-        int start = 0  , end;
+        int start = 0  , end = 0;
         for (int i = 0 ; i < graph.length ; i++){
             distance[i] = 5000;
             parent[i] = -1;
@@ -77,8 +76,53 @@ public static int[][] graph = new int[14][14];
             }
         }
         
-        
-        
-        
+        distance[start] = 0;
+
+        for(int i = 0 ; i < graph.length ; i++){
+            int minKey = min(distance , check);
+            check[minKey] = true;
+            for(int j = 0 ; j < graph.length ; j++){
+                 if (!check[j] && graph[minKey][j]!=0 &&  distance[minKey]+graph[minKey][j] < distance[j]) { 
+                    parent[j] = minKey; 
+                    distance[j] = distance[minKey] + graph[minKey][j]; 
+                } 
+            } 
+        }
+
+        print(start , end);     
+    }
+
+    public static int min (int[] key , boolean[] check){
+        int min = 50000 , minIndex = -1 ;
+        for(int i = 0 ; i <key.length ; i++){
+            if(check[i] == false && key[i] < min){
+                min = key[i];
+                minIndex = i;
+            }
+        }
+        return minIndex;
+    }
+
+    public static void print (int start , int end){
+  		
+  		int temp = end;
+
+    	String s = "";
+    	while (start != end){
+    		s+=city[end] + " ";
+    		end = parent[end];
+    	}
+
+    	System.out.println("Source: " + city[start] + " & Destination: " + city[temp]);
+    	System.out.println("Cost: " + distance[temp]);
+    	System.out.print("Shortest Path: ");
+    	System.out.print(city[start]+" > ");
+    	
+    	String[] print = s.split(" ");
+    	
+    	for(int i = print.length - 1 ; i >= 1 ; i--){
+    		System.out.print(print[i] +" > ");
+    	}
+    	System.out.println(print[0]);
     }
 }
