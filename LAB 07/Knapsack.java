@@ -9,22 +9,18 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
  * @author 17101177
  */
 public class Knapsack {
-//    public static int value[] = {50000,100000,20000,30000,60000};
-//    public static int weight[] = {3,1,3,3,2};
     
     public static int value[] = new int[5];
     public static int weight[] = new int[5];
+    public static String items[] = {"Laptop", "Phone", "Speaker","Necklace","Watch"};
    
     public static void main(String[] args){
-        // TODO code application logic here
         
         File file = new File ("input.txt");
         Scanner sc = null;
@@ -32,7 +28,7 @@ public class Knapsack {
             sc = new Scanner(file);
         } 
         catch (FileNotFoundException ex) {
-            Logger.getLogger(Knapsack.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("File Not Found");
         }
         
         int i = 0;
@@ -40,10 +36,6 @@ public class Knapsack {
             weight[i] = sc.nextInt();
             value[i] = sc.nextInt();
             i++;
-        }
-        
-        for(int j = 0 ; j<weight.length ; j++){
-            System.out.println(weight[j]+"   "+value[j]);
         }
         
         knapsack(7);
@@ -74,7 +66,24 @@ public class Knapsack {
             }
         }
         
-        System.out.println(k[weight.length][n]);
+        System.out.println("Item(s) Picked:");
+        int i = items.length-1;
+        int j = n;
+
+        while(i > 0 && j > 0){
+        	if(k[i][j] == k[i-1][j]){
+        		i--;
+        	}
+        	else{
+        		System.out.println(items[i]);
+        		i--;
+        		j-=weight[i];
+        	}
+        }
+
+        System.out.println("Total Value: "+k[weight.length][n]);
+
+
     }
     
 }
