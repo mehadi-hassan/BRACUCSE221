@@ -1,0 +1,6 @@
+This are the lab codes for CSE221:Algorithms
+
+Not all the codes are 100% correct.
+May Have Skipped One or Two Tasks.
+
+Tried to find the output and submit :P
